@@ -6,9 +6,9 @@ import cors from "cors";
 import fetch from "node-fetch";
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors()); // Allow requests from the Claude artifact
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get("/semrush", async (req, res) => {
